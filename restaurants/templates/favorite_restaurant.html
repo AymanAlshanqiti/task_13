@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %}Favorite Restaurant{% endblock title %}
+
+{% block content %}
+
+<div class="row my-3">
+    {% for fav in favorite_restaurents %}
+    <div class="col-md-4">
+        <div class="card my-card">
+          {% if fav.restaurant.logo %}
+            <img class="card-img-top" src="{{fav.restaurant.logo.url}}">
+          {% endif %}
+          <div class="card-body">
+            <h5 class="card-title">{{fav.restaurant.name}}</h5>
+
+            <p class="card-text">{{fav.restaurant.description|truncatechars:25}}</p>
+          </div>
+
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock content %}
+
